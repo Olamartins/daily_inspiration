@@ -1,0 +1,489 @@
+ @font-face {
+     src: url('./font/Dancing.ttf');
+     font-family: 'Dancing';
+ }
+ 
+ *,
+ *::before,
+ *::after {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+ 
+ html,
+ body {
+     width: 100%;
+     height: 100vh;
+ }
+ 
+ body {
+     background: linear-gradient(rgba(223, 179, 246, 0.2), rgba(117, 79, 180, 0.3)), url('img/bg.jpg');
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-attachment: fixed;
+     display: flex;
+     flex-direction: column;
+     font-family: 'Lato', sans-serif;
+     color: #eee;
+ }
+ 
+ a {
+     text-decoration: none;
+     text-transform: uppercase;
+ }
+ 
+ .container {
+     width: 100%;
+     max-width: 120rem;
+     padding: 0 1.5rem;
+     margin: auto;
+ }
+ 
+ header {
+     /* background-color: blueviolet; */
+     margin-top: 10px;
+     padding: 20px 0;
+     height: 10vh;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+ }
+ 
+ header .brand h2 {
+     font-family: 'Bellarina';
+     font-size: 35px;
+     color: #fff;
+ }
+ 
+ header .brand h2 span {
+     color: #ec008c;
+ }
+ 
+ .donatebtn {
+     color: #fff;
+     background-color: #4592af;
+     padding: 10px 30px;
+     border-radius: 25px;
+ }
+ 
+ .donate a {
+     font-size: 12px;
+ }
+ 
+ .main {
+     width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     height: 80vh;
+ }
+ 
+ .main-text {
+     /* background-color: blue; */
+     /* padding-right: 5rem; */
+     margin-right: 5rem;
+     width: 60%;
+ }
+ 
+ .main-text h2 {
+     font-size: 2.1rem;
+     color: #628a05;
+ }
+ 
+ .main-text p {
+     font-size: 1.5rem;
+     margin-top: 15px;
+     color: #002339;
+ }
+ 
+ .main-text p span {
+     color: #ec008c;
+ }
+ 
+ .main-login {
+     width: 40%;
+     display: block;
+ }
+ 
+ .main-login input,
+ button {
+     display: block;
+     margin-bottom: 15px;
+     height: 50px;
+     width: 100%;
+     background: transparent;
+     border: 3px solid #4592af;
+     border-radius: 50px;
+     padding: 5px 20px;
+     font-size: 14px;
+     font-weight: bolder;
+     color: #fff;
+     letter-spacing: 1px;
+     outline: none;
+     box-shadow: none;
+ }
+ 
+ .main-login input:last-child {
+     margin-bottom: 0;
+ }
+ 
+ .main-login button[type="submit"] {
+     width: 50%;
+     height: 40px;
+     text-transform: uppercase;
+     font-family: 'Lato', sans-serif;
+     cursor: pointer;
+     background-color: #4592af;
+     transition: background-color .5s linear;
+     margin-top: 10px;
+ }
+ 
+ .main-login input::placeholder {
+     color: #eee;
+ }
+ 
+ .main-login::-moz-placeholder {
+     color: #eee;
+ }
+ 
+ .main-login button[type="submit"]:hover {
+     background-color: transparent;
+ }
+ 
+ .main-login p {
+     color: #628a05;
+ }
+ 
+ .main-login p a {
+     color: #628a05;
+     border-bottom: 2px solid #4592af;
+     padding-bottom: 2px;
+ }
+ 
+ .main-login p a:hover {
+     color: #ec008c;
+ }
+ 
+ .main-login small a {
+     color: #628a05;
+     font-size: 12px;
+ }
+ 
+ .main-login small a:hover {
+     color: #ec008c;
+     font-weight: 400;
+ }
+ 
+ .modal {
+     background-color: rgba(0, 0, 0, 0.8);
+     width: 100%;
+     height: 100vh;
+     position: absolute;
+     top: 0;
+     left: 0;
+     z-index: 10;
+     opacity: 0;
+     visibility: hidden;
+     transition: all ease-in .5s;
+ }
+ 
+ .modal-content {
+     width: 50%;
+     height: 65%;
+     background-color: #eee;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     padding: 3rem;
+     text-align: center;
+     border-radius: 10px;
+     opacity: 0;
+     visibility: hidden;
+     transition: all ease-in .5s;
+ }
+ 
+ #modal:target {
+     opacity: 1;
+     visibility: visible;
+ }
+ 
+ #modalpassword:target {
+     opacity: 1;
+     visibility: visible;
+ }
+ 
+ #modal:target .modal-content {
+     opacity: 1;
+     visibility: visible;
+ }
+ 
+ #modalpassword:target .modal-content {
+     opacity: 1;
+     visibility: visible;
+ }
+ 
+ .modal-close {
+     color: #4592af;
+     font-size: 2rem;
+     position: absolute;
+     top: .5em;
+     right: 2em;
+ }
+ 
+ .modal-title h2 {
+     color: #4592af;
+     font-size: 1.5rem;
+ }
+ 
+ .modal-body {
+     width: 80%;
+     margin: 0 auto;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     text-align: center;
+ }
+ 
+ .modal-body form {
+     width: 100%;
+ }
+ 
+ .modal-body input,
+ .modal-body-password input {
+     display: block;
+     width: 70%;
+     height: 40px;
+     margin: 0 auto;
+     margin-top: 20px;
+     padding: 0 15px;
+     background-color: transparent;
+     letter-spacing: 1px;
+     color: #4592af;
+     font-size: 14px;
+     font-weight: 500;
+     border: 2px solid #4592af;
+     border-radius: 50px;
+     outline: none;
+     box-shadow: none;
+ }
+ 
+ .modal-body input[type="submit"],
+ .modal-body-password input[type="submit"] {
+     background-color: #4592af;
+     color: #eee;
+     font-weight: bold;
+     font-family: 'Lato', sans-serif;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+     transition: background-color .5s linear;
+ }
+ 
+ .modal-body input[type="submit"]:hover,
+ .modal-body-password input[type="submit"]:hover {
+     background-color: transparent;
+     color: #4592af;
+     border: 2px solid #4592af;
+     cursor: pointer;
+     outline: none;
+     box-shadow: none;
+ }
+ 
+ .feedback {
+     background: #4592af;
+     color: #eee;
+     width: 70%;
+     margin: 0 auto;
+     margin-top: 5px;
+     border-radius: 20px;
+ }
+ 
+ .loginfeedback {
+     background: #4592af;
+     color: #eee;
+     margin-bottom: 5px;
+     border-radius: 20px;
+ }
+ 
+ .alert-success {
+     padding: 10px 10px;
+ }
+ /* footer section */
+ 
+ .footer {
+     background: #4592af;
+     height: 10vh;
+     width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+ 
+ .footer a {
+     color: #eee;
+     padding: 10px 0;
+     font-size: 15px;
+ }
+ 
+ .fa-heart {
+     color: #ec008c;
+ }
+ 
+ @media screen and (max-width: 1800px) {
+     .container {
+         padding: 0 15rem;
+     }
+ }
+ 
+ @media screen and (max-width: 1400px) {
+     .container {
+         padding: 0 15rem;
+     }
+ }
+ 
+ @media screen and (max-width: 1200px) {
+     .container {
+         padding: 0 15rem;
+     }
+     .main-text h2 {
+         font-size: 2rem;
+     }
+     .main-login input,
+     button {
+         height: 40px;
+     }
+ }
+ 
+ @media screen and (max-width: 900px) {
+     .container {
+         padding: 0 10rem;
+     }
+     .main {
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+     }
+     .main-text {
+         width: 100%;
+         text-align: center;
+         margin-right: 0;
+         margin-bottom: 30px;
+     }
+     .main-login {
+         width: 70%;
+     }
+     .main-text h2 {
+         font-size: 30px;
+     }
+     .modal-content {
+         width: 70%;
+         height: 65%;
+         padding: 3rem 1.2rem;
+     }
+     .modal-body {
+         width: 70%;
+     }
+     .modal-body input {
+         width: 70%;
+         height: 40px;
+         padding: 0 15px;
+     }
+ }
+ 
+ @media screen and (max-width: 600px) {
+     body {
+         height: auto;
+     }
+     .container {
+         padding: 0 5rem;
+     }
+     .main-text h2 {
+         font-size: 22px;
+     }
+     .main-text p {
+         font-size: 14px;
+     }
+     /* modal-dialog */
+     .modal-content {
+         width: 80%;
+         height: 65%;
+         padding: 3rem 1.2rem;
+     }
+     .modal-body {
+         width: 70%;
+     }
+     .modal-body input {
+         width: 70%;
+         height: 40px;
+         padding: 0 15px;
+     }
+ }
+ 
+ @media screen and (max-width: 480px) {
+     body {
+         background: linear-gradient(rgba(223, 179, 246, 0.1), rgba(117, 79, 180, 0.2)), url('img/bg-small.jpg');
+         background-position: center;
+         background-repeat: no-repeat;
+         background-size: cover;
+         background-attachment: fixed;
+         display: flex;
+         flex-direction: column;
+         font-family: 'Lato', sans-serif;
+         color: #eee;
+     }
+     .container {
+         padding: 0 2rem;
+     }
+     header .brand h2 {
+         font-size: 20px;
+     }
+     .donatebtn {
+         padding: 8px 20px;
+     }
+     .donate a {
+         font-size: 12px;
+     }
+     .main-text h2 {
+         font-size: 22px;
+     }
+     .main-text p {
+         font-size: 15px;
+         margin-top: 10px;
+     }
+     .main-login {
+         width: 80%;
+     }
+     .main-login input {
+         font-size: 12px;
+         margin-bottom: 10px;
+     }
+     .main-login button[type="submit"] {
+         width: 60%;
+         font-size: 12px;
+     }
+     .main-login p {
+         font-size: 12px;
+     }
+     /* modal-dialog */
+     .modal-content {
+         width: 90%;
+         height: 65%;
+         padding: 3rem 1.2rem;
+     }
+     .modal-body {
+         width: 90%;
+     }
+     .modal-body input {
+         width: 100%;
+         height: 40px;
+         padding: 0 15px;
+     }
+     .modal-close {
+         right: 1em;
+     }
+     .footer a {
+         font-size: 10px;
+     }
+ }
